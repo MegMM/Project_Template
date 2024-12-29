@@ -1,0 +1,42 @@
+1. Open new project root folder
+
+2. In VS Code, "Save Worksapce As..." <folder-name>
+
+3. Setup virtual environment
+    root> virtualenv .venv
+    root> .venv/Scripts/activate
+
+3. Setup .gitignore file. Files & folders to exclude:
+    .venv
+    venv
+    *.code-workspace
+    *.egg-info
+    build
+    dist
+
+4. Build new project:
+    root> .venv/Scripts/activate
+    root (.venv) > poetry new <project_name>
+    root (.venv)> poetry build
+
+5. Install project:
+    root (.venv)> pip install -e .
+    root (.venv)> deactivate
+
+Resulting structure should be:
+
+Project_Template/
+    .vscode/
+    .venv/
+    project-template/
+        project_template/
+        common/
+        subtemplate1/
+        subtemplate2/
+
+    dist/
+    pyproject.toml
+    Project_template.code-workspace
+
+6. git add <project>
+
