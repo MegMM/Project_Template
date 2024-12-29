@@ -1,0 +1,17 @@
+1. To build and install package:
+        a. Write pyproject.toml
+        b. > python -m build
+        c. > pip install -e .
+2. Virtual environment:
+        a. > python -m venv <venv>
+        b. > venv/Scripts/activate
+        Note: May have to change system to allow for .ps1 scripts
+            // only way to set for individual script
+            > PowerShell.exe -ExecutionPolicy Bypass -File "C:\Path\YourScript.ps1"
+            OR
+            // all execution policies permanently on local machine
+            > Set-ExecutionPolicy RemoteSigned
+            OR
+            // all execution policies for the session on local machine
+            > Set-ExecutionPolicy RemoteSigned -Scope Process
+        c. (venv)> pip install -r requirements-<date>.txt

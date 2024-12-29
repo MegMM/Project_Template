@@ -1,0 +1,28 @@
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Project_Template"
+version = "0.0.1"
+authors = [{name = "Meghan E.", email = "mm_reads@live.com"}]
+description = "Basic foundation for starting a project"
+requires-python = ">=3.11"
+
+[tool.setuptools]
+package-dir = {src="src"}
+packages = [
+    "src",
+    "src.app",
+    "src.configs",
+    "src.tests"
+    ]
+[tool.setuptools.package-data]
+data_files = [
+    "requirements/*.txt",
+    "src/app/static/*.*",
+    "src/app/template/*.*",
+    "src/*.csv",
+    "src/*.db"
+    ]

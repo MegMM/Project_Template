@@ -1,0 +1,59 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "standard": {
+            "format": "%(asctime)s [%(levelname)s] %(module)s.%(funcName)s, line %(lineno)s: %(message)s"
+        },
+        "json": {
+            "()": "story_downloaders.configure_log.CustomJSONFormatter",
+            "fmt_keys": {
+                "level": "levelname",
+                "timestamp": "timestamp",
+                "logger": "name",
+                "module": "module",
+                "funcName": "funcName",
+                "line": "lineno",
+                "message": "message"
+            }
+        }
+    },
+    "handlers": {
+        "stream_handler": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "standard"
+        },
+        "file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "standard",
+            "filename": "{log_file_name}",
+            "encoding": "utf-8",
+            "mode": "w+",
+            "maxBytes": 100000,
+            "backupCount": 5
+        },
+        "json_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "json",
+            "filename": "{log_file_name}",
+            "encoding": "utf-8",
+            "mode": "w+",
+            "maxBytes": 100000,
+            "backupCount": 5
+        }
+    },
+    "loggers": {
+        "": {
+            "level": "DEBUG",
+            "propagate": false,
+            "handlers": [
+                "stream_handler",
+                "file_handler",
+                "json_handler"
+            ]
+        }
+    }
+}

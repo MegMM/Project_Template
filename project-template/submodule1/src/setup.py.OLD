@@ -1,0 +1,39 @@
+# import os, sys
+from pathlib import WindowsPath, Path
+
+
+### Global environment variables ###
+class BaseConfig:
+    DRIVELETTER = Path.cwd().drive
+    DRIVEDIR = Path(f"{DRIVELETTER}\\")
+    # PROJECTPATH = DRIVEDIR / r"path/to/project"
+    PROJECTPATH = Path.cwd()
+    SRCPATH = PROJECTPATH / "src"
+    CONFIGPATH = SRCPATH / "configs"
+
+    # DBPATH = SRCPATH/ "database_used.db"  ## if used
+    LOGPATH = SRCPATH/"logs"
+    APPPATH = SRCPATH/"app"
+
+    output_folder = "project_output"
+    output_path = WindowsPath(r"path/to/output")
+    DOWNLOAD_PATH = output_path/ output_folder / "HTMLDownloads"
+    PROCESSEDSHELF = output_path/ output_folder / "ProcessedArchive"
+
+    SERVER_NAME = f"127.0.0.1:5000"
+
+
+    def __repr__(self):
+        return (
+        f"""
+        {self.DRIVEDIR = }
+        {self.SERVER_NAME = }
+        {self.SRCPATH = }
+        {self.LOGPATH = }
+        {self.DBPATH = }
+        {self.APPPATH = }
+        {self.output_path = }
+        """)
+
+
+baseConfig = BaseConfig()
