@@ -1,4 +1,6 @@
-1. Open new project root folder
+1. Open new project root folder. 
+    Because of this, do NOT use "poetry new". 
+    Use "poetry init" instead.
 
 2. In VS Code, "Save Worksapce As..." <folder-name>
 
@@ -16,12 +18,12 @@
 
 4. Build new project:
     root> .venv/Scripts/activate
-    root (.venv) > poetry new <project_name>
-    root (.venv)> poetry build
+    root (.venv)> poetry new <project-name>
+    root (.venv)> cd <project-name>; poetry build
 
 5. Install project:
-    root (.venv)> pip install -e .
-    root (.venv)> deactivate
+    project-name (.venv)> pip install -e .
+    project-name (.venv)> deactivate
 
 Resulting structure should be:
 
